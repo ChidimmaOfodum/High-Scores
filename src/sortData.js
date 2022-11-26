@@ -4,6 +4,7 @@ function sortData(arr) {
     let {scores} = obj
     scores.sort((a, b) => (a.s > b.s ? -1 : 1));
   }
+  return copy
 }
 
 export default sortData;

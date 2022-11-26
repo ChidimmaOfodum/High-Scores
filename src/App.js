@@ -10,15 +10,12 @@ function App() {
   const [order, setOrder] = useState(allCountryScores);
 
   function handleOrder() {
-   if(order[0].name === "Ethiopia") {
-    let copy = [...order].sort((a,b) => a.name < b.name? -1: 1)
-    for(let obj of copy) {
-      let { scores } = obj;
-      scores.sort((a, b) => (a.s > b.s ? -1 : 1));
-      setOrder(copy)
-    }}
-   else setOrder(allCountryScores)
+    if(order[0].name === "Ethiopia") {
+      setOrder((prev) => sortData(prev))
+    }
+    else setOrder(allCountryScores)
   }
+  
   return (
     <div className="App">
       <button onClick={handleOrder}>Toggle</button>
